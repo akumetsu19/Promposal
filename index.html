@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will you go to Prom with me?</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ffe5ec, #ffc2d1);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            overflow: hidden;
+            text-align: center;
+            background-image: url('image.png'); /* Optional: Add a background image */
+            background-size: cover;
+            background-position: center;
+        }
+
+        .container {
+            background: white;
+            padding: 80px 90px;
+            padding-right: 200px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 
+            0.1);
+            background-color: transparent; /* Slightly transparent for a soft look */
+            backdrop-filter: blur(3px); /* Optional: Adds a blur effect to the background */
+        }
+
+        h1 {
+            color: #ca828f;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-shadow: #ffb3c6 1px 1px 2px; /* Optional: Adds a subtle shadow to the text */
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            height: 50px;
+            position: relative;
+        }
+
+        button {
+            padding: 12px 35px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.1s ease;
+        }
+
+        #yesBtn {
+            background-color: #daa3e7;
+            color: white;
+            box-shadow: 0 4px 15px rgba(42, 157, 143, 0.4);
+        }
+
+        #yesBtn:hover {
+            
+            transform: scale(1.1);
+        }
+
+        #noBtn {
+            background-color: #926266;
+            color: white;
+            position: absolute; /* Crucial for moving it around */
+            left: 55%; /* Initial positioning next to Yes */
+            box-shadow: 0 4px 15px rgba(230, 57, 70, 0.4);
+        }
+
+        /* Aligns the question and the GIF side-by-side */
+.promposal-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px; /* Space between the text and the image */
+    margin-bottom: 20px;
+}
+
+/* Styles for the image */
+.promposal-img {
+    width: 300px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 25px;
+}
+
+/* Responsive adjustment: stacks them on top of each other if the screen is too small */
+@media (max-width: 768px) {
+    .promposal-header {
+        flex-direction: column;
+    }
+}
+    </style>
+</head>
+<body>
+
+            <div class="container">
+    <!-- This wrapper puts the text and image side-by-side -->
+    <div class="promposal-header">
+        <h1 id="question">
+            Will you go to Prom with me <br> 
+            Anabela Christina Vasquez?
+        </h1>
+        <img src="hehe2.png" alt="Promposal GIF" class="promposal-img">
+    </div>
+    
+    <div class="buttons" id="btnContainer">
+        <button id="yesBtn" onclick="celebrate()">YES!</button>
+        <button id="noBtn" onmouseover="moveButton()">No</button>
+    </div>
+</div>
+
+    <script>
+        function moveButton() {
+            const noBtn = document.getElementById('noBtn');
+            
+            // Get viewport dimensions minus some padding so it doesn't leave the screen completely
+            const padding = 100;
+            const maxX = window.innerWidth - noBtn.offsetWidth - padding;
+            const maxY = window.innerHeight - noBtn.offsetHeight - padding;
+            
+            // Generate random coordinates (ensuring they stay on screen)
+            const randomX = Math.max(padding, Math.floor(Math.random() * maxX));
+            const randomY = Math.max(padding, Math.floor(Math.random() * maxY));
+            
+            // Switch to fixed positioning once it starts moving so it can go anywhere on screen
+            noBtn.style.position = 'fixed';
+            noBtn.style.left = randomX + 'px';
+            noBtn.style.top = randomY + 'px';
+        }
+
+        function celebrate() {
+            const question = document.getElementById('question');
+            const btnContainer = document.getElementById('btnContainer');
+            
+            // Update the text and hide the buttons
+            question.innerHTML = "-2639 6960";
+            btnContainer.style.display = 'none';
+            
+            // Optional: You can add CSS confetti here if you want to get extra fancy later!
+        }
+    </script>
+
+</body>
+</html>
